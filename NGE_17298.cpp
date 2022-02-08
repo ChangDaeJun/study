@@ -1,8 +1,10 @@
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 int N;
+
 void saveN()
 {
 	cin >> N;
@@ -40,6 +42,7 @@ void pop()
 	stack.pop_back();
 	stackSize --;
 }
+
 void push(const int x)
 {
 	stack.push_back(x);
@@ -51,6 +54,7 @@ void saveNGE(const int N, const int i)
 	int pushNumber = sequence[i];
 	NGE[N] = pushNumber;
 }
+
 void checkDefalt()
 {
 	int sequenceLength = sequence.size();
