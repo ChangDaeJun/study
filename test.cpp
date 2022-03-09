@@ -1,18 +1,45 @@
-#include <iostream>
-using namespace std;
-
-int main()
 {
-	int n;
-	cin >> n;
+	vector<int> divide;
 
-	for(int i = 0; i < n; i++)
+	int min = a[0];
+	divide.push_back(0);
+	divide.push_back(0);
+	bool circle = false;
+	for(int i = 1; i < a.size(); i++)
 	{
-		for(int j = 0; j < n; j++)
+		if(a[i] < min)
 		{
-			cout << i * n + j << ' ';
+			min = a[i];
+			divide.clear();
+			divide.push_back(0);
+			divide.push_back(i);
+			divide.push_back(i);
+			divide.push_back(i);
+			circle = false;
 		}
-		cout << '\n';
+		else if(a[i] == min)
+		{	
+			if(circle == false)
+			{
+				divide.pop_back();
+				divide.pop_back();	
+				divide.push_back(i);
+				divide.push_back(i);
+			}
+			else
+			{
+				divide.pop_back();
+				divide.push_back(i);
+				divide.push_back(i);
+				divide.push_back(i);
+				circle = false;
+			}
+		}
+		else
+		{
+			divide.pop_back();
+			divide.push_back(i);
+			circle = true;
+		}
 	}
-	return 0;
 }
