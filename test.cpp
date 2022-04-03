@@ -1,30 +1,35 @@
 #include <iostream>
-#include <vector>
+#include <queue>
+
 using namespace std;
 
 int main()
 {
-	int x = 0;
-	
-	if(x)
+	struct compare
 	{
-		cout << "false" << endl;
+		bool operator()(const int x, const int y)
+		{
+			return x > y;
+		}
+	};
+
+	priority_queue<int, vector<int>, compare> q;
+
+	int n;
+	cin >> n;
+	for(int i = 0; i < n; i++)
+	{
+		int x;
+		cin >> x;
+		q.push(x);
 	}
 
-	x = 1;
-
-	if(x)
+	for(int i = 0; i < n; i++)
 	{
-		cout << "true" << endl;
+		int x;
+		x = q.top();
+		cout << x;
+		q.pop();
 	}
-
-	vector<int> a;
-	a.push_back(1);
-
-	if(a)
-	{
-		cout << "true" << endl;
-	}
-
 	return 0;
 }
