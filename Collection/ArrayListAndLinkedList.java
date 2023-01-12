@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
- * ArrayList는 크기 10 배열을 기본값으로 갖으며, 입력받은 수가 배열의 크기를 넘으면 기존 배열의 2배 크기의 새 배열을 만들어 복사한다.
+ * ArrayList는 크기 10 배열을 기본값으로 갖으며, 입력받은 수가 배열의 크기를 넘을 때 기존 배열의 1.5배 크기의 새 배열을 만들어 복사한다. * Vector는 2배
  * LinkedLust는 node를 통해 비순차적인 데이터를 연결하는 자료구조이다.
  *
  * [add]
