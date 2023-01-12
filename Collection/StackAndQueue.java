@@ -3,7 +3,7 @@ package Collection;
 import java.util.*;
 
 /**
- * stack : FILO 구조
+ * stack : LIFO 구조
  * Queue : FIFO 구조, 데이터를 꺼낼 때마다 맨 앞의 수를 삭제해야 하므로 ArrayList로 구현할 경우 비효율적이다.
  * PriorityQueue : 사전에 정한 우선순위에 따라 출력됨
  * Deque : 양쪽 끝에서 추가 삭제가 가능
