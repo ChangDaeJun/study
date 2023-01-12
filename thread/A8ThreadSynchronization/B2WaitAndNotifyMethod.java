@@ -1,5 +1,7 @@
 package thread.A8ThreadSynchronization;
 
+import java.util.ArrayList;
+
 /**
  * [wait()]
  * 1. 해당 객체의 대기실에서 콜을 기달림
@@ -9,82 +11,118 @@ package thread.A8ThreadSynchronization;
  * 1. 해당 객체의 대기실에 있는 모든 쓰레드 중 일부 임의 통보, notifyAll()은 전체 통보
  * 2. Object에 정의되어 있음
  *
+ * [기아 현상과 경쟁 상태]
+ * 1. 기아현상(starvation):
+ * 2. 경쟁상태(race condition):
  */
 public class B2WaitAndNotifyMethod {
     public static void main(String[] args) {
-        Money money = new Money();
-        Son son = new Son(money);
-        Father father = new Father(money);
+        Table table = new Table();
 
-        son.start();
-        father.start();
+        new Thread(new Cook(table),"cook1").start();
+        new Thread(new Customer(table, "donut"), "customer1").start();
+        new Thread(new Customer(table, "burger"), "customer2").start();
 
         try {
-            Thread.sleep(10000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
         System.exit(0);
     }
 
-    static class Son extends Thread{
-        private Money money;
+    static class Customer implements Runnable{
+        private Table table;
+        private String food;
 
-        public Son(Money money) {
-            this.money = money;
+        public Customer(Table table, String food) {
+            this.table = table;
+            this.food = food;
         }
 
-        public void run(){
-            while(true){
+        @Override
+        public void run() {
+            while (true) {
                 try {
                     Thread.sleep(100);
-                }catch (InterruptedException e){}
-                money.getMoney(1000);
-                System.out.println("get 1000 won");
+                }catch (InterruptedException e) {}
+
+                String name = Thread.currentThread().getName();
+                table.remove(food);
+                System.out.println(name + " ate a " + food);
             }
         }
     }
 
-    static class Father extends Thread{
-        private Money money;
+    static class Cook implements Runnable{
+        private Table table;
 
-        public Father(Money money) {
-            this.money = money;
+        public Cook(Table table) {
+            this.table = table;
         }
 
-        public void run(){
+        @Override
+        public void run() {
             while (true){
+                int idx = (int)(Math.random()*table.dishNum());
+                table.add(table.dishNames[idx]);
                 try {
-                    Thread.sleep(120);
+                    Thread.sleep(10);
                 }catch (InterruptedException e){}
-                money.plus(700);
-                System.out.println("input 100 won");
             }
         }
     }
 
-    static class Money{
-        private int money;
+    static class Table{
+        String[] dishNames = {"donut", "donut", "burger"};
+        final int Max_FOOD = 6;
+        private ArrayList<String> dishes = new ArrayList<>();
 
-        public Money() {
-            this.money = 10000;
-        }
-
-        public synchronized boolean getMoney(int number){
-            while (money < number){
+        public synchronized void add(String dish){
+            while (dishes.size() >= Max_FOOD){
+                String name = Thread.currentThread().getName();
+                System.out.println(name + "is waiting.");
                 try {
                     wait();
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
+                    Thread.sleep(500);
+                }catch (InterruptedException e){}
             }
-            money -= number;
+            dishes.add(dish);
             notify();
-            return true;
+            System.out.println("Dishes: " + dishes.toString());
         }
 
-        public synchronized void plus(int number){
-            money += number;
+        public void remove(String dishName){
+            synchronized (this){
+                String name = Thread.currentThread().getName();
+
+                while (dishes.size() == 0){
+                    System.out.println(name + " is waiting.");
+                    try {
+                        wait();
+                        Thread.sleep(500);
+                    }catch (InterruptedException e){}
+                }
+
+                while (true){
+                    for(int i = 0; i < dishes.size(); i++){
+                        if(dishName.equals(dishes.get(i))){
+                            dishes.remove(i);
+                            notify();
+                            return;
+                        }
+                    }
+                    try {
+                        System.out.println(name+"is waiting");
+                        wait();
+                        Thread.sleep(500);
+                    }catch (InterruptedException e){}
+                }
+            }
+        }
+
+        public int dishNum(){
+            return dishNames.length;
         }
     }
 }
