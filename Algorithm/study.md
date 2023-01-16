@@ -32,7 +32,8 @@
 <ol>
     <li>Scanner input = new Scanner(System.in) -> i/o는 예외처리를 반드시 해야하지만 예외처리가 되어 있음</li>
     <li>InputStream : 최상위 입력 스트림, 추상 클래스, 키보드 -> 입력버퍼 -> 운영체제 -> 자바 프로그램 이기에 OS별로 별도 구현이 필요 -> System.in</li>
-    <li> input -> 여러 반환(nextInt())와 같은 함수를 사용할 수 있다.</li>
+    <li> input -> 여러 반환(nextInt())와 같은 함수를 사용할 수 있다. Scanner의 함수에 예외처리되어있음</li>
+    <br/>
     <li>자바의 데이터 처리는 1byte, 2byte, line단위, buffer 단위 설계 -> java.io</li>
     <li>ByteStream</li>
     <li>CharacterStream</li>
