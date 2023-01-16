@@ -25,7 +25,8 @@
 
 <h1>문장</h1>
 <ol>
-    <li>조건문 : if(조건식) {true 일 때 수행하는 문장}, else - if, else 등</li>
+    <li>조건문: if(조건식) {true 일 때 수행하는 문장}, else - if, else, switch case default 등</li>
+    <li>반복문: for(초기화식; 조건식; 증감식), while(조건식), do-while, for-each</li>
 </ol>
 
 <h1>사용자로부터 입력받아오는 방법</h1>
