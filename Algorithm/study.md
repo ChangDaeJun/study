@@ -44,3 +44,12 @@
     <li>new BufferedReader (new InputStreamReader(System.in)), .readLine() -> 엔터 전까지 입력</li>
     
 </ol>
+
+<h1>클래스</h1>
+<ol>
+    <li>구성 요소 : 선언, 멤버필드, 멤버 메서드, 생성자 메서드</li>
+    <li> 자바는 단일 상속만 지원, 상속을 하지 않으면 자동으로 Object 상속</li>
+    <li>다중 상속의 장점을 자바에서는 인터페이스로 구현 지원</li>
+    <li>AccessModifier [modifier]   class 클래스 이름 [extends 부모클래스 이름] [implements 인터페이스 이름]</li>
+    <li>public(default) final, abstract</li>
+</ol>
