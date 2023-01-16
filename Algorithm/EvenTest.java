@@ -1,6 +1,6 @@
 package Algorithm;
 
-public class test1 {
+public class EvenTest {
     public static void main(String[] args) {
         int num = 0;
         if(num % 2 == 0) System.out.println(num + "는 짝수입니다.");
