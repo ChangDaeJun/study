@@ -3,33 +3,35 @@ package Algorithm;
 import java.util.Scanner;
 
 public class UpDownGame {
+    private static int userAnswer = 0;
+    private static int usedChance = 1;
+    private static int computerAnswer = (int)(Math.random() * 100 + 1);
 
     public static void main(String[] args) {
-        int computerAnswer = (int)(Math.random() * 100 + 1);
-        int userAnswer = 0;
-        int chance = 1;
+        if (playGame()) {
+            System.out.println("정답입니다" + usedChance +"번 만에 맞췄습니다.");
+        }
+        else {
+            System.out.println("맞추지 못했습니다. 정답은 " + computerAnswer +"입니다.");
+        }
+    }
 
+    private static boolean playGame() {
         do {
             userAnswer = getUserAnswer();
-            if(userAnswer == computerAnswer){
-                System.out.println("정답입니다" + chance +"번 만에 맞췄습니다.");
-                return;
-            }else{
+            if(userAnswer == computerAnswer) return true;
+            else{
                 hintUpOrDown(userAnswer, computerAnswer);
+                usedChance++;
             }
-            chance++;
-        }while (chance <= 5);
+        }while (usedChance <= 5);
 
-        System.out.println("맞추지 못했습니다. 정답은 " + computerAnswer +"입니다.");
+        return false;
     }
 
     private static void hintUpOrDown(int userAnswer, int computerAnswer) {
-        if(userAnswer > computerAnswer){
-            System.out.println("Down !");
-        }
-        else if(userAnswer < computerAnswer){
-            System.out.println("Up !");
-        }
+        if(userAnswer > computerAnswer)System.out.println("Down !");
+        else System.out.println("Up !");
     }
 
     private static int getUserAnswer() {
