@@ -1,4 +1,4 @@
-package algorithm.day1.bank;
+package algorithm.day1.banking1;
 
 public class Bank {
     private Customer[] customers;

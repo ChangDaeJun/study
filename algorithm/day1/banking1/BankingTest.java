@@ -1,4 +1,4 @@
-package algorithm.day1.bank;
+package algorithm.day1.banking1;
 
 public class BankingTest {
     public static void main(String[] args) {
