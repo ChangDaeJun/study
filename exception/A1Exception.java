@@ -1,4 +1,4 @@
-package Exception;
+package exception;
 
 /**
  * [예외 처리]

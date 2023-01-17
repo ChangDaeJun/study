@@ -1,8 +1,7 @@
-package Collection;
+package collection;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.TreeSet;
 
 /**
  * HashSet은 이미 저장된 요소나 중복된 요소를 저장할 시 false 반환, 순서를 유지하지 않기에 필요하다면 LinkedHashSet 사용.

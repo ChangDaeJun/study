@@ -1,4 +1,4 @@
-package Algorithm.day1.bank;
+package algorithm.day1.bank;
 
 public class Account {
     private String accountName;

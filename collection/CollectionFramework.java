@@ -1,4 +1,4 @@
-package Collection;
+package collection;
 
 /**
  * [컬렉션 프레임워크]

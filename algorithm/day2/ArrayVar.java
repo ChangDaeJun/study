@@ -1,4 +1,4 @@
-package Algorithm.day2;
+package algorithm.day2;
 
 public class ArrayVar {
 
