@@ -1,4 +1,4 @@
-package Algorithm.bank;
+package Algorithm.day1.bank;
 
 import java.util.List;
 

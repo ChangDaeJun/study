@@ -1,4 +1,4 @@
-package Algorithm;
+package Algorithm.day1;
 
 public class OddNumberDesc {
     public static void main(String[] args) {
