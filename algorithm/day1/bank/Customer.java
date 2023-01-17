@@ -1,18 +1,15 @@
 package algorithm.day1.bank;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Customer {
     private String ssn;
     private String name;
-    private List<Account> accounts;
+    private Account[] accounts;
     private int numberOfAccounts;
 
     public Customer(String ssn, String name) {
         this.ssn = ssn;
         this.name = name;
-        this.accounts = new ArrayList<>();
+        this.accounts = new Account[5];
         this.numberOfAccounts = 0;
     }
 
@@ -32,7 +29,7 @@ public class Customer {
         return name;
     }
 
-    public List<Account> getAccounts() {
+    public Account[] getAccounts() {
         return accounts;
     }
 
@@ -41,11 +38,11 @@ public class Customer {
     }
 
     public void addAccount(Account account){
-        if(accounts.size() >= 5){
+        if(numberOfAccounts >= 5){
             System.out.println("계좌를 5개 이상 만들 수 없습니다.");
             return;
         }
-        accounts.add(account);
+        accounts[numberOfAccounts]=account;
         numberOfAccounts++;
     }
 }

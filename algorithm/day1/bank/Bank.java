@@ -1,18 +1,15 @@
 package algorithm.day1.bank;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Bank {
-    private List<Customer> customers;
+    private Customer[] customers;
     private int numberOfCustomers;
 
     public Bank() {
-        customers = new ArrayList<>();
+        customers = new Customer[10];
         numberOfCustomers = 0;
     }
 
-    public List<Customer> getCustomers() {
+    public Customer[] getCustomers() {
         return customers;
     }
 
@@ -21,11 +18,11 @@ public class Bank {
     }
 
     public void addCustomer(Customer customer){
-        if(customers.size() >= 10){
+        if(numberOfCustomers >= 10){
             System.out.println("손님은 10명을 이상 등록할 수 없습니다. ");
             return;
         }
-        customers.add(customer);
+        customers[numberOfCustomers] = customer;
         numberOfCustomers++;
     }
 }
