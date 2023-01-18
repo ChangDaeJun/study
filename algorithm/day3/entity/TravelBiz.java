@@ -1,4 +1,4 @@
-package workshop3.entity;
+package algorithm.day3.entity;
 
 public class TravelBiz {
     private Travel[] travels;

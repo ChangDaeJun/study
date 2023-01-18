@@ -1,4 +1,4 @@
-package workshop3.entity;
+package algorithm.day3.entity;
 
 public class Travel {
     private String travelCode;
@@ -50,7 +50,7 @@ public class Travel {
     }
 
     public void printTravelInfo(){
-        System.out.printf("%-6s  %-4s \t %-5s \t %-6s \t %2d명 \t %-1d명 \n", this.travelCode, this.cityName, this.flight, getTravelType(), this.maxPeople, this.reserved);
+        System.out.printf("%-6s  %-4s \t %-5s \t %-6s \t %2d명 \t %2d명 \n", this.travelCode, this.cityName, this.flight, getTravelType(), this.maxPeople, this.reserved);
     }
 
 }

@@ -1,4 +1,4 @@
-package workshop3.entity;
+package algorithm.day3.entity;
 
 public class TravelTest {
     public static void main(String[] args) {
