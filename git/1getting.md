@@ -26,6 +26,6 @@ git은 파일을 이름이 아닌 해당 파일의 해시로 저장함.
 
 ### git의 여러가지 환경 설정 명령어
 1. 사용자 이름, 이메일 설정 : git config —global user.email, user.name
-2. 기본 편집기 사용 : git config —global core.editor [편집기 name]
-3. 환경 설정 확인: git config —list
+2. 기본 편집기 설정 : git config —global core.editor [편집기 name]
+3. 환경 설정 확인 : git config —list
 4. 환경 설정 시 어느 파일에서 설정된 것인지 확인 : git config —show-orgin <Key>
