@@ -1,4 +1,4 @@
-package thread.A7ThreadScheduling;
+package Java.thread.A7ThreadScheduling;
 
 /**
  *  * [suspend()] & [resume()] & [stop()] - deprecated! 된 함수(데드락 발생 가능성을 높임)

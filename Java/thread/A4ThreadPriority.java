@@ -1,4 +1,4 @@
-package thread;
+package Java.thread;
 
 /**
  * [쓰레드 우선순위]

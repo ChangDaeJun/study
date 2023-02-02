@@ -1,4 +1,4 @@
-package thread.A7ThreadScheduling;
+package Java.thread.A7ThreadScheduling;
 
 /**
  *  * [void interrupt()] & [static boolean interrupted()]

@@ -1,4 +1,4 @@
-package thread.A8ThreadSynchronization;
+package Java.thread.A8ThreadSynchronization;
 
 /**
  * [쓰레드 동기화]

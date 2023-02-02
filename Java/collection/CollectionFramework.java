@@ -1,4 +1,4 @@
-package collection;
+package Java.collection;
 
 /**
  * [컬렉션 프레임워크]

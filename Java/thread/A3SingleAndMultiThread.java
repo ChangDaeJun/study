@@ -1,4 +1,4 @@
-package thread;
+package Java.thread;
 
 /**
  * [싱글 쓰레드, 멀티 쓰레드]

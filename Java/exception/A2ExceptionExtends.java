@@ -1,4 +1,4 @@
-package exception;
+package Java.exception;
 
 public class A2ExceptionExtends {
     public static void main(String[] args) {

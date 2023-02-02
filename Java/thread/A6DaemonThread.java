@@ -1,4 +1,4 @@
-package thread;
+package Java.thread;
 
 /**
  * [데몬쓰레드]

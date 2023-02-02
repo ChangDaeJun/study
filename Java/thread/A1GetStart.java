@@ -1,4 +1,4 @@
-package thread;
+package Java.thread;
 
 /**
  * [쓰레드 구현 방법]
@@ -20,7 +20,7 @@ package thread;
 public class A1GetStart {
     public static void main(String[] args) {
         Runnable runnable = new MyThread();
-        Thread thread = new Thread(runnable, "implements runnable thread");
+        Thread thread = new Thread(runnable, "implements runnable Java.thread");
 
         MyThread1 thread1 = new MyThread1("extends Thread");
 

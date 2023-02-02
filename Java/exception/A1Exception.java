@@ -1,4 +1,4 @@
-package exception;
+package Java.exception;
 
 /**
  * [예외 처리]

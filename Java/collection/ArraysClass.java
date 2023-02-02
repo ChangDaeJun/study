@@ -1,4 +1,4 @@
-package collection;
+package Java.collection;
 
 import java.util.Arrays;
 

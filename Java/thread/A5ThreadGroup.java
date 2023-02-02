@@ -1,4 +1,4 @@
-package thread;
+package Java.thread;
 
 /**
  * [쓰레드 그룹 클래스 : https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/lang/ThreadGroup.html]

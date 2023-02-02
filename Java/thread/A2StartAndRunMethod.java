@@ -1,4 +1,4 @@
-package thread;
+package Java.thread;
 
 /**
  * [start()와 run()의 차이]

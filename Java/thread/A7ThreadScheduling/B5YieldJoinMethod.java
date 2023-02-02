@@ -1,4 +1,4 @@
-package thread.A7ThreadScheduling;
+package Java.thread.A7ThreadScheduling;
 
 /**
  * [yield()]
@@ -25,7 +25,7 @@ public class B5YieldJoinMethod {
                 System.out.print("*");
             }
             System.out.println("");
-            System.out.println("thread 1 end");
+            System.out.println("Java.thread 1 end");
         }
     }
 
@@ -35,7 +35,7 @@ public class B5YieldJoinMethod {
                 System.out.print("+");
             }
             System.out.println("");
-            System.out.println("thread 2 end");
+            System.out.println("Java.thread 2 end");
         }
     }
 }

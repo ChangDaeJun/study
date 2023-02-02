@@ -1,4 +1,4 @@
-package thread.A8ThreadSynchronization;
+package Java.thread.A8ThreadSynchronization;
 
 import java.util.ArrayList;
 
