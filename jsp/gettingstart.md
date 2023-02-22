@@ -1,6 +1,6 @@
 ### 시작하기
 * .jsp 확장자를 사용하는 파일을 생성한다.
-```
+```jsp
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
