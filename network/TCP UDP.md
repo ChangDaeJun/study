@@ -17,7 +17,9 @@
 
 ### 3way handshake
 * TCP 프로토콜에서 통신 전 통신 가능 여부를 미리 확인하는 사전작업을 의미한다. 3번 패킷을 주고받으면서 준비하기에 3웨이 핸드셰이크라고 부른다.
-[이미지]
+
+![sss](https://user-images.githubusercontent.com/97227920/221343964-70e75a08-6f77-48d0-8943-77c0835d05df.png)
+
 * <출처 : <https://sjlim5092.tistory.com/35>>
 
 * 서버는 listen 상태로 접속을 기다린다.
