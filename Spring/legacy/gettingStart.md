@@ -272,3 +272,31 @@
 
 </log4j:configuration>
 ```
+
+### RootConfig.java
+```java
+@Configuration
+public class RootConfig{
+    
+}
+```
+
+### WebConfig.java
+```java
+public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitializer{
+    @Override
+    protected Class<?>[] getRootConfigClasses(){
+        return new Class[]{RootConfig.class};
+    }
+
+    @Override
+    protected Class<?>[] getServletConfigClasses(){
+        return null;
+    }
+    
+    @Override
+    protected Class<?>[] getServletMappings(){
+        return null;
+    }
+}
+```
