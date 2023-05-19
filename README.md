@@ -8,8 +8,11 @@
   * Discrete Mathematics
 
 
-* Tech
+* Language
   * Java
+
+
+* Tech
   * Spring
   * JSP
   * Servlet
