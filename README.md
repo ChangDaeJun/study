@@ -3,9 +3,9 @@
 ## Index
 * CS
   * Algorithm
-  * Database
+  * [Database](https://github.com/ChangDaeJun/study/blob/main/computerScience/database(new)/databaseSystem.md)
   * Network
-  * Discrete Mathematics
+  * [Discrete Mathematics](https://github.com/ChangDaeJun/study/tree/main/computerScience/discreteMathematics)
 
 
 * Language

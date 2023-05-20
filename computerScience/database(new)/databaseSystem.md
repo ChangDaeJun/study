@@ -6,6 +6,8 @@
 5. 데이터 보안을 강화할 수 있다.(접근 제어)
 
 ### 관계 데이터 모델 용어 정리(Word in Relational Database)
+<img width="552" alt="image" src="https://github.com/ChangDaeJun/study/assets/97227920/24341e2c-caef-44d0-9133-92cc63de0f0a">
+
 * 릴레이션(relation), 테이블(table) : 행과 열로 구성된 테이블을 의미한다.
 * 관계(relationship) : 테이블과 테이블 간의 관계를 의미한다. 외래키에 의해 생긴다.
 * 속성(attribute), 열(column) : 테이블이 가지고 있는 속성
@@ -14,7 +16,6 @@
 * 스키마(schema) : 속성과 자료의 타입과 같은 정보
 * 인스턴스(instance) : 튜플의 집합, 스키마에 따라 테이블에 실제 저장된 데이터 집합
 
-<사진이 들어갈 자리>
 
 ### 키(Key)
 * 슈퍼키(super key) : 튜플을 유일하게 식별할 수 있는 속성 집합
