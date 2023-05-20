@@ -46,3 +46,4 @@ A Intersection B(AND)
 0011110100
 
 ```
+* 해당 디렉토리의 Bitwise.java 을 참고.
