@@ -2,14 +2,14 @@
 
 ## Index
 * CS
-  * Algorithm
+  * [Algorithm](https://github.com/ChangDaeJun/study/tree/main/computerScience/algorithm)
   * [Database](https://github.com/ChangDaeJun/study/blob/main/computerScience/database(new)/databaseSystem.md)
-  * Network
-  * [Discrete Mathematics](https://github.com/ChangDaeJun/study/tree/main/computerScience/discreteMathematics)
+  * [Network](https://github.com/ChangDaeJun/study/tree/main/computerScience/network)
+  * [Discrete Mathematics](https://github.com/ChangDaeJun/study/blob/main/computerScience/discreteMathematics/discretemathematics.md)
 
 
 * Language
-  * Java
+  * [Java](https://github.com/ChangDaeJun/study/tree/main/language/Java)
 
 
 * Tech
