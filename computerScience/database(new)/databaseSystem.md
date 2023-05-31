@@ -115,7 +115,7 @@
 | Chang | 010-2222-2222 |
 | Kim   | 010-3333-3333 |
 
-#### 2 정규형
+#### 2 정규형(2NF)
 * 1 정규형을 만족하며, 모든 속성이 기본키에 완전 함수 종속이다.(A relation is int first normal form and every non-primary key attribute is fully functionally dependent on the primary key.)
 
 | num | class    | class room | point |
@@ -152,10 +152,51 @@
 | database | 110        |
 | network  | 111        |
 
-* 3 정규형 : 2 정규형이면서, 비이행적 종속을 만족한다.
-* BCNF : 모든 함수 종속성의 결정자는 후보키이다.
-* 4 정규형 : 다차 종속이 존재하지 않는다.(??)
-* 5 정규형 : 조인 종속이 존재하지 않는다.(??)
+#### 3 정규형(3NF)
+* 2 정규형이면서, 기본키가 아닌 속성이 비이행적 종속을 만족한다.(A relation that is in first and second normal form and in which no non-primary key is transitively dependent on the primary key)
+* 이행적 종속 : A(PK) -> B -> C 으로, C 역시 A에 종속되어 있지만, 이행적으로 종속되어 있다.
+* 다음과 같은 경우, 2정규형을 만족하면서, 3 정규형을 만족하지 못한다.
+
+| user num | grade   | discount(%) |
+|----------|---------|-------------|
+| 1        | gold    | 10          |
+| 2        | silver  | 5           |
+| 3        | diamond | 15          |
+| 4        | none    | 0           |
+| 5        | silver  | 5           |
+
+* (user num) -> (grade) -> (discount)인 이행적 종속을 만족한다.
+* 위 테이블은 다음과 같은 이상현상을 나타낸다.
+```
+    1. 삭제 이상 : user num = 4 행을 삭제할 경우, none 등급의 할인율도 같이 삭제된다.
+    2. 수정 이상 : silver의 할인율을 올리기 위해 중복된 데이터를 수정해야 한다.
+    3. 삽입 이상 : 할인율이 20%인 새로운 등급 master을 등록하기 위해서는 user num = null 로 삽입해야 한다.
+```
+* 유저 등급과 등급 할인율 관계를 분리해서 이를 해결할 수 있다.
+
+| user num | grade   |
+|----------|---------|
+| 1        | gold    |
+| 2        | silver  |
+| 3        | diamond |
+| 4        | none    |
+| 5        | silver  |
+
+| grade   | discount(%) |
+|---------|-------------|
+| gold    | 10          |
+| silver  | 5           |
+| diamond | 15          |
+| none    | 0           |
+
+#### BCNF()
+* 모든 함수 종속성의 결정자는 후보키이다.
+
+#### 4 정규형
+* 다차 종속이 존재하지 않는다.(??)
+
+#### 5 정규형
+* 조인 종속이 존재하지 않는다.(??)
 
 ### 트랜잭션(transaction)
 * 데이터베이스 작업의 최소 단위이면서, ACID 성질을 갖는다.
