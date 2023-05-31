@@ -72,8 +72,86 @@
 ### 정규화(normalization)
 * 이상현상이 발생하는 테이블을 수정하여 문제를 해결하는 것
 * 함수 종속성 : 속성 집합 A에 의해 B가 결정될 경우, B가 A에 의해 함수 종속적이라고 할 수 있다. 또한, 릴래이션 전체 속성은 반드시 기본키에 함수 종속적이다.
-* 1 정규형 : 모든 속성 값이 원자값을 갖는다.
-* 2 정규형 : 1 정규형이면서, 모든 속성이 기본키에 완전 함수 종속(결정자의 어떠한 부분집합에 대해 결정되지 않음)
+
+#### 제 1 정규형(1NF)
+* 각 행의 교집합은 하나의 속성만 갖고, 각 열의 교집합은 반드시 하나의 값만 갖는다.(A relation which the intersection of each row and column contains one and only one value.)
+* 다음과 같은 경우는 1 정규형이 아니다.
+* 한 속성에 여러 값을 넣는 경우
+
+| name | address      | phoneNumber                  |
+|------|--------------|------------------------------|
+| Chang | Korea, Seoul | 010-1111-1111, 010-2222-2222 |
+| Kim  | Korea, Busan | 010-3333-3333                |
+* 중복된 행을 갖는 경우
+
+| name  | address      | phoneNumber   |
+|-------|--------------|---------------|
+| Chang | Korea, Seoul | 010-1111-1111 |
+| Chang | Korea, Seoul | 010-2222-2222 |
+| Kim   | Korea, Busan | 010-3333-3333 |
+* 중복된 열을 갖는 경우
+
+| name  | address      | phoneNumber1  | phoneNumber2  |
+|-------|--------------|---------------|---------------|
+| Chang | Korea, Seoul | 010-1111-1111 | 010-2222-2222 |
+| Kim   | Korea, Busan | 010-3333-3333 | null          |
+
+* 위와 같은 테이블은 다음과 같은 이상현상을 일으킨다.
+```
+    1. 삽입이상 : 중복된 열을 갖는 경우 null 값을 삽입해야 한다.
+    2. 수정이상 : 중복된 행을 갖는 경우에서 Chang의 address을 하나의 행만 변경 시 데이터 일관성이 회손된다.
+```
+
+* 위 테이블은 다음과 같이 수정할 수 있다.
+
+| name  | address      |
+|-------|--------------|
+| Chang | Korea, Seoul |
+| Kim   | Korea, Busan |
+
+| name  | phoneNumber   |
+|-------|---------------|
+| Chang | 010-1111-1111 |
+| Chang | 010-2222-2222 |
+| Kim   | 010-3333-3333 |
+
+#### 2 정규형
+* 1 정규형을 만족하며, 모든 속성이 기본키에 완전 함수 종속이다.(A relation is int first normal form and every non-primary key attribute is fully functionally dependent on the primary key.)
+
+| num | class    | class room | point |
+|-----|----------|------------|-------|
+| 1   | database | 110        | 3.5   |
+| 2   | network  | 111        | 4.2   |
+| 1   | network  | 111        | 4.5   |
+| 2   | database | 110        | 3.8   |
+
+* 위 경우는 1정규형을 만족하면서, 2정규형을 만족하지 못하는 경우이다.
+* 위와 같은 테이블은 다음과 같은 이상현상을 일으킨다.
+```
+    1. 삽입이상 : 새로운 class을 추가할 경우 수강학생과 수강 성적이 없어 null 값이 들어가게 된다.
+    2. 수정이상 : database의 class room을 202로 변경할 경우, 데이터 중복으로 인한 불일치가 발생할 수 있다.
+    3. 삭제이상 : 1,2 학생의 데이터베이스 수강을 취소할 경우 해당 class의 class room 정보도 같이 사라진다.
+```
+
+* 위 테이블에서는 수강 내역, 강좌 정보라는 두 함수 종속이 존재하기 때문이다.
+* 수강 내역 : (num, class) -> point
+* 강좌 정보 : (class) -> class room
+* 여기서 class room은 기본키인 (num, class)가 아닌, 기본키의 부분집합인 class에 종속되어, 완전 종속되지 못한다.
+
+* 위 테이블은 다음과 같이 해결할 수 있다.
+
+| num | class    | point |
+|-----|----------|-------|
+| 1   | database |  3.5  |
+| 2   | network  | 4.2   |
+| 1   | network  | 4.5   |
+| 2   | database | 3.8   |
+
+| class    | class room |
+|----------|------------|
+| database | 110        |
+| network  | 111        |
+
 * 3 정규형 : 2 정규형이면서, 비이행적 종속을 만족한다.
 * BCNF : 모든 함수 종속성의 결정자는 후보키이다.
 * 4 정규형 : 다차 종속이 존재하지 않는다.(??)
@@ -122,3 +200,4 @@
 ### 참고 자료(reference)
 * 박우창, 남송휘, 이현룡, MySQL로 배우는 데이터베이스 개론과 실습(한빛아카데미, 2019)
 * E. F. Codd, A Relational Model of Data for Large Shared Data Banks(1970)
+* 정규화 : https://ko.wikipedia.org/wiki/%EC%A0%9C1%EC%A0%95%EA%B7%9C%ED%98%95
