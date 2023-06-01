@@ -189,14 +189,14 @@
 | diamond | 15          |
 | none    | 0           |
 
-#### BCNF()
-* 모든 함수 종속성의 결정자는 후보키이다.
+#### BCNF(Boyce Codd Normal Form)
+* 릴레이션의 모든 함수 종속성의 결정자는 후보키이다.(A relation is BCNF if and only if every determinant is a candidate key)
 
 #### 4 정규형
-* 다차 종속이 존재하지 않는다.(??)
+* 다차 종속이 존재하지 않는다.
 
 #### 5 정규형
-* 조인 종속이 존재하지 않는다.(??)
+* 조인 종속이 존재하지 않는다.
 
 ### 트랜잭션(transaction)
 * 데이터베이스 작업의 최소 단위이면서, ACID 성질을 갖는다.
