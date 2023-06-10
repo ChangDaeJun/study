@@ -4,7 +4,7 @@
 * CS
   * [Algorithm](https://github.com/ChangDaeJun/study/tree/main/computerScience/algorithm)
   * [Database](https://github.com/ChangDaeJun/study/blob/main/computerScience/database(new)/databaseSystem.md)
-  * [Network](https://github.com/ChangDaeJun/study/tree/main/computerScience/network)
+  * [Network](https://github.com/ChangDaeJun/study/blob/main/computerScience/network(new)/network.md)
   * [Discrete Mathematics](https://github.com/ChangDaeJun/study/blob/main/computerScience/discreteMathematics/discretemathematics.md)
 
 
